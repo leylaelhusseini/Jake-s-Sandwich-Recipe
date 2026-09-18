@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jake's Perfect Sandwich</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="home-screen" class="screen active">
+<img src="title.png" alt="Jake's Perfect Sandwich" class="title-img">
+<div>
+<h1>Ingredients</h1>
+<ul>
+<li>Cream cheese</li>
+<li>Dill pickles from Prismo</li>
+<li>Dill</li>
+<li>Diced boiled egg</li>
+<li>Bird from the window</li>
+<li>Common cucumber</li>
+<li>Sliced Roma tomato</li>
+<li>Organic yellow onion</li>
+<li>Tears for salt</li>
+<li>Meat from the sous-vide (rosemary & thyme)</li>
+<li>Bacon</li>
+<li>Lobster soul</li>
+</ul>
+<h1>Instructions</h1>
+<ol>
+<li>Toast the inside of the baguette with a torch.</li>
+<li>Spread a layer of cream cheese over the bottom bread.</li>
+<li>Lay down Prismo's dill pickles and sprinkle fresh dill on top.</li>
+<li>Add the diced boiled eggs and cooked bird meat.</li>
+<li>Layer the sliced cucumber, Roma tomato, and organic yellow onion.</li>
+<li>Add a pinch of salt using fresh tears.</li>
+<li>Stack the herb sous-vide meat and crispy bacon.</li>
+<li>Top it off with the soul of a lobster.</li>
+<li>Seal the sandwich with the top bun and enjoy.</li>
+</ol>
+</div>
+<img src="sandwich.png.png" alt="Jake's Perfect Sandwich" class="zoomable-sandwich" onclick="goToMap()">
+</div>
+<div id="map-screen" class="screen">
+<div class="clumsy-instructions">
+<p>
+1. wander around the map and scavenge all the weird ingredients<br>
+2. drag them back to the kitchen and assemble the sandwich<br><br>
+if you're jake enough, hit enter and let's get this over with.
+</p>
+</div>
+<button class="enter-btn" onclick="goToPage('grasslands.html')">ENTER<span class="arrow">↓</span></button>
+</div>
+
+<div id="treehouse-screen" class="screen">
+<video autoplay muted loop playsinline id="kingdom-bg-video">
+<source src="Screen Recording 2026-09-10 142113.mp4" type="video/mp4">
+</video>
+</div>
+
+<div id="fade-overlay"></div>
+<video autoplay muted loop playsinline id="bg-video">
+<source src="https://files.catbox.moe/tyd0dw.mp4" type="video/mp4">
+</video>
+<div id="universe-portal"></div>
+<script src="script.js"></script>
+</body>
+</html>
