@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marceline's Cave - Jake's Perfect Sandwich</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    body .menu-btn, 
+    body .reset-btn, 
+    body .nav-arrow-right, 
+    body .nav-arrow-left {
+        background-color: rgba(40, 20, 50, 0.9);
+        color: #e6b8ff;
+        border: 2px dashed #8a2be2;
+    }
+
+    body .menu-btn:hover, 
+    body .reset-btn:hover, 
+    body .nav-arrow-right:hover, 
+    body .nav-arrow-left:hover {
+        background-color: #8a2be2;
+        color: #fff;
+    }
+
+    .leave-cave-btn,
+    .enter-house-btn {
+        position: absolute;
+        padding: 8px 16px;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 8px;
+        z-index: 10;
+        background-color: rgba(40, 20, 50, 0.85);
+        color: #e6b8ff;
+        border: 2px solid #8a2be2;
+        box-shadow: 0 0 10px rgba(138, 43, 226, 0.6);
+        transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .leave-cave-btn {
+        left: 78%;
+        top: 25%;
+        transform: translate(-50%, 0);
+    }
+
+    .enter-house-btn {
+        left: 55%;
+        top: 65%;
+        transform: translate(-50%, 0);
+    }
+
+    .leave-cave-btn:hover,
+    .enter-house-btn:hover {
+        background-color: rgba(70, 30, 90, 0.95);
+        transform: translate(-50%, 0) scale(1.08);
+        box-shadow: 0 0 18px rgba(138, 43, 226, 0.9);
+        color: #fff;
+    }
+</style>
+</head>
+<body>
+
+<div id="fade-overlay" class="active"></div>
+
+<button class="menu-btn" onclick="toggleMenu()">Sandwich Checklist</button>
+<button class="reset-btn" onclick="localStorage.clear(); location.reload();">Reset Ingredients</button>
+
+<div id="checklist-modal" class="checklist-modal">
+    <div class="checklist-content">
+        <h2>Jake's Sandwich Ingredients</h2>
+        <ul id="ingredient-list"></ul>
+        <button class="close-menu-btn" onclick="toggleMenu()">Close</button>
+    </div>
+</div>
+
+<div class="screen active room-screen">
+    <img src="marcyshouse.jfif" alt="Marceline's Cave" class="room-bg">
+    <button class="leave-cave-btn" onclick="goToPage('forest.html')">leave cave</button>
+    <button class="enter-house-btn" onclick="goToPage('marcyslivingroom.html')">enter marceline's house</button>
+</div>
+
+<script src="treehouse.js"></script>
+</body>
+</html>
