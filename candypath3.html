@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Candy Path 3 - Jake's Perfect Sandwich</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    body .menu-btn, 
+    body .reset-btn, 
+    body .nav-arrow-right, 
+    body .nav-arrow-left {
+        background-color: rgba(60, 10, 30, 0.9);
+        color: #ffb6c1;
+        border: 2px dashed #ff69b4;
+    }
+
+    body .menu-btn:hover, 
+    body .reset-btn:hover, 
+    body .nav-arrow-right:hover, 
+    body .nav-arrow-left:hover {
+        background-color: #ff69b4;
+        color: #000;
+    }
+</style>
+</head>
+<body>
+
+<div id="fade-overlay" class="active"></div>
+<button class="menu-btn" onclick="toggleMenu()">Sandwich Checklist</button>
+<button class="reset-btn" onclick="localStorage.clear(); location.reload();">Reset Ingredients</button>
+
+<div id="checklist-modal" class="checklist-modal">
+    <div class="checklist-content">
+        <h2>Jake's Sandwich Ingredients</h2>
+        <ul id="ingredient-list"></ul>
+        <button class="close-menu-btn" onclick="toggleMenu()">Close</button>
+    </div>
+</div>
+<div class="screen active room-screen">
+    <img src="candypath3.jfif" alt="Candy Path 3" class="room-bg">
+    <button class="nav-arrow-left" onclick="goToPage('candyentrance.html')">⬅</button>
+    <button class="nav-arrow-right" onclick="goToPage('candypath2.html')">➡</button>
+</div>
+
+<script src="treehouse.js"></script>
+</body>
+</html>
