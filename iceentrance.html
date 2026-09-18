@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ice Kingdom Entrance - Jake's Perfect Sandwich</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    .room-bg {
+        transform: translate(-50%, -50%) scale(1.08);
+        transform-origin: center;
+    }
+    
+    .enter-gym-btn {
+        position: absolute;
+        top: 42%;
+        left: 68%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(10, 30, 60, 0.8);
+        color: #e0f7ff;
+        border: 2px solid #00bfff;
+        padding: 8px 16px;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 8px;
+        z-index: 10;
+        box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+        transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .enter-gym-btn:hover {
+        background-color: rgba(20, 60, 100, 0.9);
+        transform: translate(-50%, -50%) scale(1.05);
+        box-shadow: 0 0 15px rgba(0, 191, 255, 0.8);
+    }
+
+    .enter-corridor-btn {
+        position: absolute;
+        top: 80%;
+        left: 95%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(10, 30, 60, 0.8);
+        color: #e0f7ff;
+        border: 2px solid #00bfff;
+        padding: 8px 16px;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 8px;
+        z-index: 10;
+        box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+        transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .enter-corridor-btn:hover {
+        background-color: rgba(20, 60, 100, 0.9);
+        transform: translate(-50%, -50%) scale(1.05);
+        box-shadow: 0 0 15px rgba(0, 191, 255, 0.8);
+    }
+
+    .leave-castle-btn {
+        position: absolute;
+        top: 32%;
+        left: 44%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(10, 30, 60, 0.8);
+        color: #e0f7ff;
+        border: 2px solid #00bfff;
+        padding: 8px 16px;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 8px;
+        z-index: 10;
+        box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+        transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .leave-castle-btn:hover {
+        background-color: rgba(20, 60, 100, 0.9);
+        transform: translate(-50%, -50%) scale(1.05);
+        box-shadow: 0 0 15px rgba(0, 191, 255, 0.8);
+    }
+</style>
+</head>
+<body class="ice-theme">
+
+<div id="fade-overlay" class="active"></div>
+
+<button class="menu-btn" onclick="toggleMenu()">Sandwich Checklist</button>
+<button class="reset-btn" onclick="localStorage.clear(); location.reload();">Reset Ingredients</button>
+
+<div id="checklist-modal" class="checklist-modal">
+    <div class="checklist-content">
+        <h2>Jake's Sandwich Ingredients</h2>
+        <ul id="ingredient-list"></ul>
+        <button class="close-menu-btn" onclick="toggleMenu()">Close</button>
+    </div>
+</div>
+
+<div class="screen active room-screen">
+    <img src="iceentrance.jfif" alt="Ice Entrance" class="room-bg">
+
+    <button class="enter-gym-btn" onclick="goToPage('icegym.html')">Enter Gym</button>
+    
+    <button class="enter-corridor-btn" onclick="goToPage('icecorridor.html')">Enter Corridor</button>
+
+    <button class="leave-castle-btn" onclick="goToPage('icekingdom.html')">Leave Ice Castle</button>
+</div>
+
+<script src="treehouse.js"></script>
+</body>
+</html>
