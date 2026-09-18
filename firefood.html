@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fire Food - Jake's Perfect Sandwich</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    body .menu-btn, 
+    body .reset-btn, 
+    body .nav-arrow-right, 
+    body .nav-arrow-left,
+    body .nav-arrow-forward {
+        background-color: rgba(60, 15, 10, 0.9);
+        color: #ffb347;
+        border: 2px dashed #ff4500;
+    }
+
+    body .menu-btn:hover, 
+    body .reset-btn:hover, 
+    body .nav-arrow-right:hover, 
+    body .nav-arrow-left:hover,
+    body .nav-arrow-forward:hover {
+        background-color: #ff4500;
+        color: #000;
+    }
+
+    .nav-arrow-forward {
+        position: absolute;
+        top: 50%;
+        left: 35%;
+        transform: translate(-50%, -50%);
+        padding: 10px 16px;
+        font-family: inherit;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 8px;
+        z-index: 10;
+        box-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
+        transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .nav-arrow-forward:hover {
+        transform: translate(-50%, -50%) scale(1.1);
+        box-shadow: 0 0 15px rgba(255, 69, 0, 0.8);
+    }
+
+    .onion-item {
+        position: absolute;
+        bottom: 15%; 
+        left: 23%; 
+        width: 4%; 
+        height: auto;
+        cursor: pointer;
+        z-index: 5;
+        filter: drop-shadow(0 0 6px rgba(255, 69, 0, 0.7));
+        transition: transform 0.2s, filter 0.2s;
+    }
+
+    .onion-item:hover {
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 12px rgba(255, 69, 0, 1));
+    }
+
+    .onion-item.collected {
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+<div id="fade-overlay" class="active"></div>
+
+<button class="menu-btn" onclick="toggleMenu()">Sandwich Checklist</button>
+<button class="reset-btn" onclick="localStorage.clear(); location.reload();">Reset Ingredients</button>
+
+<div id="checklist-modal" class="checklist-modal">
+    <div class="checklist-content">
+        <h2>Jake's Sandwich Ingredients</h2>
+        <ul id="ingredient-list"></ul>
+        <button class="close-menu-btn" onclick="toggleMenu()">Close</button>
+    </div>
+</div>
+
+<div class="screen active room-screen">
+    <img src="firefood.jfif" alt="Fire Food" class="room-bg">
+    
+    <img src="onion.png" alt="Onion" id="onion-ingredient" class="onion-item" onclick="collectItem('onion', this)">
+    <button class="nav-arrow-forward" onclick="goToPage('firecorridor.html')">⬆</button>
+    <button class="nav-arrow-right" onclick="goToPage('firecastle.html')">➡</button>
+</div>
+
+<script src="treehouse.js"></script>
+</body>
+</html>
