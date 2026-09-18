@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grass Forest - Jake's Perfect Sandwich</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    .room-bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: 100vw;
+        height: 100vh;
+        transform: translate(-50%, -50%);
+        object-fit: cover !important;
+        z-index: -1;
+    }
+</style>
+</head>
+<body>
+
+<div id="fade-overlay" class="active"></div>
+
+<button class="menu-btn" onclick="toggleMenu()">Sandwich Checklist</button>
+<button class="reset-btn" onclick="localStorage.clear(); location.reload();">Reset Ingredients</button>
+
+<div id="checklist-modal" class="checklist-modal">
+    <div class="checklist-content">
+        <h2>Jake's Sandwich Ingredients</h2>
+        <ul id="ingredient-list"></ul>
+        <button class="close-menu-btn" onclick="toggleMenu()">Close</button>
+    </div>
+</div>
+
+<div class="screen active room-screen">
+    <img src="grassforest.jfif" alt="Grass Forest" class="room-bg">
+    <button class="nav-arrow-left" onclick="goToPage('grasslands.html')">⬅</button>
+    <button class="nav-arrow-right" onclick="goToPage('forest.html')">➡</button>
+</div>
+
+<script src="treehouse.js"></script>
+</body>
+</html>
