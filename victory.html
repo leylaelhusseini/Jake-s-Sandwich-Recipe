@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Perfect Sandwich - Victory</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    .room-bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: 100vw;
+        height: 100vh;
+        transform: translate(-50%, -50%);
+        object-fit: cover !important;
+        z-index: -1;
+    }
+
+    .victory-text {
+        position: absolute;
+        bottom: 8%;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #e6b8ff;
+        font-family: inherit;
+        font-size: 16px;
+        letter-spacing: 1px;
+        text-align: center;
+        background: rgba(20, 10, 30, 0.85);
+        padding: 10px 20px;
+        border-radius: 8px;
+        border: 1px solid #8a2be2;
+        z-index: 10;
+    }
+</style>
+</head>
+<body>
+
+<div id="fade-overlay" class="active"></div>
+
+<div class="screen active room-screen">
+    <img src="victory.jfif" alt="Jake with Sandwich" class="room-bg">
+    <div class="victory-text">
+        one must imagine jake the dog happy.
+    </div>
+</div>
+
+<script src="treehouse.js"></script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marceline's Bedroom - Jake's Perfect Sandwich</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    body .menu-btn, 
+    body .reset-btn, 
+    body .nav-arrow-right, 
+    body .nav-arrow-left {
+        background-color: rgba(40, 20, 50, 0.9);
+        color: #e6b8ff;
+        border: 2px dashed #8a2be2;
+    }
+
+    body .menu-btn:hover, 
+    body .reset-btn:hover, 
+    body .nav-arrow-right:hover, 
+    body .nav-arrow-left:hover {
+        background-color: #8a2be2;
+        color: #fff;
+    }
+
+    .custom-room-fix {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 0;
+    }
+
+    .custom-room-fix .room-bg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+
+    .leave-room-btn {
+        position: absolute;
+        bottom: 10%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        padding: 8px 16px;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 8px;
+        z-index: 10;
+        background-color: rgba(40, 20, 50, 0.85);
+        color: #e6b8ff;
+        border: 2px solid #8a2be2;
+        box-shadow: 0 0 10px rgba(138, 43, 226, 0.6);
+        transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .leave-room-btn:hover {
+        background-color: rgba(70, 30, 90, 0.95);
+        transform: translate(-50%, 0) scale(1.08);
+        box-shadow: 0 0 18px rgba(138, 43, 226, 0.9);
+        color: #fff;
+    }
+
+    .nav-arrow-left {
+        position: absolute;
+        top: 50%;
+        left: 3%;
+        transform: translateY(-50%);
+        padding: 10px 16px;
+        font-family: inherit;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 8px;
+        z-index: 10;
+        background-color: rgba(40, 20, 50, 0.85);
+        color: #e6b8ff;
+        border: 2px dashed #8a2be2;
+        box-shadow: 0 0 10px rgba(138, 43, 226, 0.6);
+        transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .nav-arrow-left:hover {
+        background-color: #8a2be2;
+        transform: translateY(-50%) scale(1.08);
+        box-shadow: 0 0 18px rgba(138, 43, 226, 0.9);
+        color: #fff;
+    }
+
+    .hambo-item {
+        position: absolute;
+        top: 52%;
+        left: 48%;
+        width: 60px;
+        height: auto;
+        cursor: pointer;
+        z-index: 10;
+        transition: transform 0.2s;
+        filter: drop-shadow(0 0 8px rgba(138, 43, 226, 0.7));
+    }
+
+    .hambo-item:hover {
+        transform: scale(1.15);
+    }
+
+    .video-overlay {
+        position: fixed;
+        inset: 0;
+        background-color: rgba(10, 5, 15, 0.85);
+        backdrop-filter: blur(5px);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.8s ease;
+    }
+
+    .video-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .video-container {
+        position: relative;
+        width: 75vw;
+        max-width: 850px;
+        aspect-ratio: 16 / 9;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 0 40px rgba(138, 43, 226, 0.4), 0 0 80px rgba(0, 0, 0, 0.9);
+    }
+
+    .video-container video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .video-container::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8);
+        border-radius: 12px;
+    }
+
+    .exit-video-btn {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        padding: 8px 16px;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 8px;
+        z-index: 10000;
+        background-color: rgba(40, 20, 50, 0.85);
+        color: #e6b8ff;
+        border: 2px solid #8a2be2;
+        box-shadow: 0 0 10px rgba(138, 43, 226, 0.6);
+        transition: background-color 0.2s, transform 0.2s;
+    }
+
+    .exit-video-btn:hover {
+        background-color: rgba(70, 30, 90, 0.95);
+        transform: scale(1.08);
+        color: #fff;
+    }
+</style>
+</head>
+<body>
+
+<div id="fade-overlay" class="active"></div>
+
+<button class="menu-btn" onclick="toggleMenu()">Sandwich Checklist</button>
+<button class="reset-btn" onclick="localStorage.clear(); location.reload();">Reset Ingredients</button>
+
+<div id="checklist-modal" class="checklist-modal">
+    <div class="checklist-content">
+        <h2>Jake's Sandwich Ingredients</h2>
+        <ul id="ingredient-list"></ul>
+        <button class="close-menu-btn" onclick="toggleMenu()">Close</button>
+    </div>
+</div>
+
+<div class="screen active room-screen custom-room-fix">
+    <img src="marcysbedroom.jfif" alt="Marceline's Bedroom" class="room-bg">
+    
+    <img src="hambo.png" alt="Hambo" class="hambo-item" onclick="playMarcyVideo()">
+
+    <button class="nav-arrow-left" onclick="goToPage('room2.html')">⬅</button>
+    <button class="leave-room-btn" onclick="goToPage('marcyslivingroom.html')">back to living room</button>
+</div>
+
+<div id="video-overlay" class="video-overlay">
+    <div class="video-container">
+        <video id="marcy-video" preload="auto" playsinline>
+            <source src="marcyspast.mp4" type="video/mp4">
+        </video>
+    </div>
+    <button class="exit-video-btn" onclick="closeMarcyVideo()">Exit Video</button>
+</div>
+
+<script src="treehouse.js"></script>
+<script>
+    function playMarcyVideo() {
+        const overlay = document.getElementById('video-overlay');
+        const video = document.getElementById('marcy-video');
+        
+        overlay.classList.add('active');
+        video.currentTime = 0;
+        video.load();
+        video.play().catch(error => {
+            console.log("Playback error:", error);
+        });
+
+        video.onended = function() {
+            closeMarcyVideo();
+        };
+    }
+
+    function closeMarcyVideo() {
+        const overlay = document.getElementById('video-overlay');
+        const video = document.getElementById('marcy-video');
+        
+        video.pause();
+        overlay.classList.remove('active');
+    }
+</script>
+</body>
+</html>

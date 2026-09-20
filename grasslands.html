@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grasslands - Jake's Perfect Sandwich</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: black;
+    }
+
+    .exterior-bg-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 0;
+        overflow: hidden;
+    }
+
+    .exterior-bg-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .nav-arrow-left, .nav-arrow-right, .menu-btn, .reset-btn, #checklist-modal, #fade-overlay {
+        z-index: 10;
+    }
+
+    .treehouse-btn {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #ffd700;
+        border: 2px solid #ffd700;
+        padding: 10px 20px;
+        font-family: inherit;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 8px;
+        z-index: 10;
+        transition: background-color 0.2s, transform 0.2s;
+    }
+
+    .treehouse-btn:hover {
+        background-color: rgba(50, 50, 50, 0.9);
+        transform: translateX(-50%) scale(1.05);
+    }
+</style>
+</head>
+<body>
+
+<div id="fade-overlay" class="active"></div>
+
+<button class="menu-btn" onclick="toggleMenu()">Sandwich Checklist</button>
+<button class="reset-btn" onclick="localStorage.clear(); location.reload();">Reset Ingredients</button>
+
+<div id="checklist-modal" class="checklist-modal">
+    <div class="checklist-content">
+        <h2>Jake's Sandwich Ingredients</h2>
+        <ul id="ingredient-list"></ul>
+        <button class="close-menu-btn" onclick="toggleMenu()">Close</button>
+    </div>
+</div>
+
+<div class="exterior-bg-container">
+    <img src="grasslands.webp" alt="Grasslands Background" class="exterior-bg-img">
+    <button class="nav-arrow-left" onclick="goToPage('grassland1.html')">⬅</button>
+    <button class="nav-arrow-right" onclick="goToPage('grassforest.html')">➡</button>
+    <button class="treehouse-btn" onclick="goToPage('livingroom.html')">Enter Treehouse</button>
+</div>
+
+<script src="treehouse.js"></script>
+</body>
+</html>

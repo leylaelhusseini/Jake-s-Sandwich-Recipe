@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grassland 2 - Jake's Perfect Sandwich</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="ice-theme">
+
+<div id="fade-overlay" class="active"></div>
+
+<button class="menu-btn" onclick="toggleMenu()">Sandwich Checklist</button>
+<button class="reset-btn" onclick="localStorage.clear(); location.reload();">Reset Ingredients</button>
+
+<div id="checklist-modal" class="checklist-modal">
+    <div class="checklist-content">
+        <h2>Jake's Sandwich Ingredients</h2>
+        <ul id="ingredient-list"></ul>
+        <button class="close-menu-btn" onclick="toggleMenu()">Close</button>
+    </div>
+</div>
+
+<div class="screen active room-screen">
+    <img src="grassland2.jfif" alt="Grassland 2" class="room-bg">
+
+    <button class="nav-arrow-left" onclick="goToPage('icekingdom.html')">⬅</button>
+    <button class="nav-arrow-right" onclick="goToPage('grassland1.html')">➡</button>
+</div>
+
+<script src="treehouse.js"></script>
+
+</body>
+</html>

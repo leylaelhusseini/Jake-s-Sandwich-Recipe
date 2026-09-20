@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Candy Throne Room - Jake's Perfect Sandwich</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: black;
+    }
+
+    .room-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        background-color: #000;
+    }
+
+    .room-bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translate(-50%, -50%);
+        object-fit: cover !important;
+        z-index: -1;
+    }
+
+    .menu-btn, .reset-btn, #checklist-modal, #fade-overlay {
+        z-index: 10;
+    }
+
+    body .menu-btn, 
+    body .reset-btn {
+        background-color: rgba(60, 10, 30, 0.9);
+        color: #ffb6c1;
+        border: 2px dashed #ff69b4;
+    }
+
+    body .menu-btn:hover, 
+    body .reset-btn:hover {
+        background-color: #ff69b4;
+        color: #000;
+    }
+
+    .leave-throne-btn,
+    .bedroom-btn {
+        position: absolute;
+        padding: 12px 24px;
+        font-family: inherit;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 8px;
+        z-index: 10;
+        background-color: rgba(60, 10, 30, 0.9);
+        color: #ffb6c1;
+        border: 2px solid #ff69b4;
+        box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+        transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .leave-throne-btn:hover,
+    .bedroom-btn:hover {
+        background-color: rgba(90, 20, 45, 0.95);
+        color: #fff;
+    }
+
+    .leave-throne-btn {
+        top: 90%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .leave-throne-btn:hover {
+        transform: translateX(-50%) scale(1.05);
+        box-shadow: 0 0 15px rgba(255, 105, 180, 0.8);
+    }
+
+    .bedroom-btn {
+        top: 50%;
+        left: 30px;
+        transform: translateY(-50%);
+    }
+
+    .bedroom-btn:hover {
+        transform: translateY(-50%) scale(1.05);
+        box-shadow: 0 0 15px rgba(255, 105, 180, 0.8);
+    }
+</style>
+</head>
+<body>
+
+<div id="fade-overlay" class="active"></div>
+
+<button class="menu-btn" onclick="toggleMenu()">Sandwich Checklist</button>
+<button class="reset-btn" onclick="localStorage.clear(); location.reload();">Reset Ingredients</button>
+
+<div id="checklist-modal" class="checklist-modal">
+    <div class="checklist-content">
+        <h2>Jake's Sandwich Ingredients</h2>
+        <ul id="ingredient-list"></ul>
+        <button class="close-menu-btn" onclick="toggleMenu()">Close</button>
+    </div>
+</div>
+
+<div class="screen active room-screen">
+    <img src="candythrone.png" alt="Candy Throne Room" class="room-bg">
+
+    <button class="leave-throne-btn" onclick="goToPage('candymainhall.html')">leave throne room</button>
+    <button class="bedroom-btn" onclick="goToPage('candybedroom.html')">enter bedroom</button>
+</div>
+
+<script src="treehouse.js"></script>
+</body>
+</html>

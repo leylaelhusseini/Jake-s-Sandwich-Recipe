@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marceline's Kitchen - Jake's Perfect Sandwich</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    body .menu-btn, 
+    body .reset-btn, 
+    body .nav-arrow-right, 
+    body .nav-arrow-left {
+        background-color: rgba(40, 20, 50, 0.9);
+        color: #e6b8ff;
+        border: 2px dashed #8a2be2;
+    }
+
+    body .menu-btn:hover, 
+    body .reset-btn:hover, 
+    body .nav-arrow-right:hover, 
+    body .nav-arrow-left:hover {
+        background-color: #8a2be2;
+        color: #fff;
+    }
+
+    .custom-room-fix {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 0;
+    }
+
+    .custom-room-fix .room-bg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+
+    .leave-room-btn {
+        position: absolute;
+        bottom: 6%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        padding: 8px 16px;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 8px;
+        z-index: 10;
+        background-color: rgba(40, 20, 50, 0.85);
+        color: #e6b8ff;
+        border: 2px solid #8a2be2;
+        box-shadow: 0 0 10px rgba(138, 43, 226, 0.6);
+        transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .leave-room-btn:hover {
+        background-color: rgba(70, 30, 90, 0.95);
+        transform: translate(-50%, 0) scale(1.08);
+        box-shadow: 0 0 18px rgba(138, 43, 226, 0.9);
+        color: #fff;
+    }
+
+    .collectible-lobster {
+        position: absolute;
+        top: 85%;
+        left: 7%;
+        width: 60px;
+        height: auto;
+        cursor: pointer;
+        z-index: 10;
+        filter: drop-shadow(0 0 10px #e6b8ff) drop-shadow(0 0 20px #8a2be2);
+        animation: lobsterGlow 2s infinite alternate;
+        transition: transform 0.2s;
+    }
+
+    .collectible-lobster:hover {
+        transform: scale(1.15);
+    }
+
+    @keyframes lobsterGlow {
+        0% {
+            filter: drop-shadow(0 0 6px #e6b8ff) drop-shadow(0 0 12px #8a2be2);
+        }
+        100% {
+            filter: drop-shadow(0 0 12px #fff) drop-shadow(0 0 25px #9400d3);
+        }
+    }
+</style>
+</head>
+<body>
+
+<div id="fade-overlay" class="active"></div>
+
+<button class="menu-btn" onclick="toggleMenu()">Sandwich Checklist</button>
+<button class="reset-btn" onclick="localStorage.clear(); location.reload();">Reset Ingredients</button>
+
+<div id="checklist-modal" class="checklist-modal">
+    <div class="checklist-content">
+        <h2>Jake's Sandwich Ingredients</h2>
+        <ul id="ingredient-list"></ul>
+        <button class="close-menu-btn" onclick="toggleMenu()">Close</button>
+    </div>
+</div>
+
+<div class="screen active room-screen custom-room-fix">
+    <img src="marcyskitchen.jfif" alt="Marceline's Kitchen" class="room-bg">
+    <img src="lobster.png" alt="Lobster" class="collectible-lobster" onclick="collectItem('lobster', this)">
+    <button class="leave-room-btn" onclick="goToPage('marcyslivingroom.html')">back to living room</button>
+</div>
+
+<script src="treehouse.js"></script>
+</body>
+</html>
